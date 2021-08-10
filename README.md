@@ -5,9 +5,9 @@ Fake data generation in Swift
 ## Usage
 
 ```swift
-let faker = Faker()
-faker.address.country
-faker.name.firstName
+let fake = Fake()
+fake.address.country
+fake.name.firstName
 ```
 
 Change default locale
