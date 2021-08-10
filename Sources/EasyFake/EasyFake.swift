@@ -12,8 +12,8 @@ public struct Fake {
 
     public init() {}
 
-    public lazy var address = Address()
-    public lazy var name = Name()
+    public let address = Address()
+    public let name = Name()
 }
 
 public extension Fake {
