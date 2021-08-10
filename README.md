@@ -5,9 +5,15 @@ Fake data generation in Swift
 ## Usage
 
 ```swift
-let faker = Faker(locale: "en")
+let faker = Faker()
 faker.address.country
 faker.name.firstName
+```
+
+Change default locale
+
+```swift
+Fake.locale = "fr"
 ```
 
 ## Installation

@@ -10,6 +10,8 @@ import Foundation
 public struct Fake {
     public static var locale: String = "en"
 
+    public init() {}
+
     public lazy var address = Address()
     public lazy var name = Name()
 }
