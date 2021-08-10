@@ -16,7 +16,7 @@ faker.name.firstName
 Add EasyFake as a dependency to your Package.swift. For more information, please see the [Swift Package Manager documentation](https://github.com/apple/swift-package-manager/tree/master/Documentation).
 
 ```swift
-.package(url: "https://github.com/onmyway133/EasyFake", from: "1.1.8")
+.package(url: "https://github.com/onmyway133/EasyFake", from: "1.0.0")
 ```
 
 **EasyFake** can also be installed manually. Just download and drop `Sources` folders in your project.
