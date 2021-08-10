@@ -1,3 +1,8 @@
-struct EasyFake {
-    var text = "Hello, World!"
-}
+//
+//  EasyFake.swift
+//  EasyFake
+//
+//  Created by khoa
+//
+
+public 
