@@ -31,6 +31,12 @@ final class Loader {
                         .replacingOccurrences(of: "\",", with: "")
                         .replacingOccurrences(of: "\"", with: "")
                 }
+                .filter { line in
+                    let ignore = ["[", "]", "//"]
+                    return ignore.allSatisfy {
+                        !line.contains($0)
+                    }
+                }
 
             lines.removeFirst()
             lines.removeLast()
