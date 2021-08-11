@@ -14,22 +14,22 @@ public struct Locator {
 
     public var wrappedValue: String {
         get {
-            let content = Loader().load(file: file)
-            let lines = parse(content: content)
+            let lines = load()
             let line = lines.randomElement() ?? ""
             return transformer.transform(line)
         }
     }
 
     private static var cache: [String: [String]] = [:]
-    private func parse(content: String) -> [String] {
+    private func load() -> [String] {
         let key = "\(Fake.locale)-\(file)"
 
         if let lines = Self.cache[key] {
             return lines
         }
 
-        var lines = content
+        var lines = Loader()
+            .load(file: file)
             .components(separatedBy: .newlines)
             .map { line in
                 line
