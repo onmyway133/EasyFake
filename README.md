@@ -2,6 +2,13 @@
 
 Fake data generation in Swift
 
+❤️ Support my apps ❤️
+
+- [Push Hero - pure Swift native macOS application to test push notifications](https://onmyway133.com/pushhero)
+- [PastePal - Pasteboard, note and shortcut manager](https://onmyway133.com/pastepal)
+- [Almighty - Powerful Mac tweaks](https://onmyway133.com/almighty)
+- [My other apps](https://onmyway133.com/apps/)
+
 ## Usage
 
 ```swift
