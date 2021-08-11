@@ -14,6 +14,7 @@ public struct Fake {
 
     public let address = Address()
     public let animal = Animal()
+    public let app = App()
     public let name = Name()
 }
 
@@ -116,6 +117,14 @@ public extension Fake {
 
         @Locator(file: "animal-type")
         public var type: String
+    }
+
+    struct App {
+        @Locator(file: "app-name")
+        public var name: String
+
+        @Locator(file: "app-version", transformer: .digit)
+        public var version: String
     }
 
     struct Name {
