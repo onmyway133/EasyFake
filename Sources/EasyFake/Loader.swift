@@ -13,7 +13,7 @@ final class Loader {
     private var cache: [URL: [String]] = [:]
 
     func load(locale: String = Fake.locale, file: String) -> String {
-        guard let url = Bundle.module.url(
+        guard let url = bundle.url(
             forResource: "\(locale)-\(file)",
             withExtension: "js"
         ) else { return "" }
@@ -44,5 +44,13 @@ final class Loader {
 
     private func process(lines: [String]) -> String {
         lines.randomElement() ?? ""
+    }
+
+    private var bundle: Bundle {
+        #if SWIFT_PACKAGE
+        Bundle.module
+        #else
+        Bundle.main
+        #endif
     }
 }
