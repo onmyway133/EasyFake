@@ -15,16 +15,17 @@ public struct Transformer {
     }
 
     public static let none = Transformer(transform: { $0 })
+
     public static let digit = Transformer(transform: { string in
-        string
-            .map { c in
-                guard c == "#" else { return String(c) }
-                let number = Int.random(in: 0 ... 9)
-                return "\(number)"
-            }
-            .joined()
+        string.replacingHash()
     })
 
-    public static let regex = Transformer(transform: { $0 })
+    public static let creditCard = Transformer(transform: { string in
+        string
+            .replacingRegexSquareBrackets()
+            .replacingRegexCurlyBraces()
+            .replacingHash()
+    })
+
     public static let sub = Transformer(transform: { $0 })
 }
