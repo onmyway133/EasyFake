@@ -7,49 +7,18 @@
 
 import Foundation
 
-final class Loader {
-    static let shared = Loader()
-    private var cache: [URL: [String]] = [:]
-
-    func loadAll(locale: String = Fake.locale, file: String) -> [String] {
+struct Loader {
+    func load(locale: String = Fake.locale, file: String) -> String {
         guard let url = bundle.url(
             forResource: "\(locale)-\(file)",
             withExtension: "js"
-        ) else { return [] }
-
-        if let lines = cache[url] {
-            return lines
-        }
+        ) else { return "" }
 
         do {
-            let content = try String(contentsOfFile: url.path)
-            var lines = content
-                .components(separatedBy: .newlines)
-                .map { line in
-                    line
-                        .replacingOccurrences(of: "\",", with: "")
-                        .replacingOccurrences(of: "\"", with: "")
-                }
-                .filter { line in
-                    let ignore = ["[", "]", "//"]
-                    return ignore.allSatisfy {
-                        !line.contains($0)
-                    }
-                }
-
-            lines.removeFirst()
-            lines.removeLast()
-
-            cache[url] = lines
-            return lines
+            return try String(contentsOfFile: url.path)
         } catch {
-            return []
+            return ""
         }
-    }
-
-    func load(locale: String = Fake.locale, file: String) -> String {
-        let lines = loadAll(locale: locale, file: file)
-        return lines.randomElement() ?? ""
     }
 
     private var bundle: Bundle {

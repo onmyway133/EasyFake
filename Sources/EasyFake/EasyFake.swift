@@ -225,8 +225,8 @@ public extension Fake {
         @Locator(file: "finance-transaction_type")
         public var transactionType: String
 
-        @Locator(file: "finance-currency", transformer: .tbd)
-        public var currency: String
+        @CurrencyLocator(file: "finance-currency")
+        public var currency: Currency?
 
         public let creditCard = CreditCard()
 
@@ -351,8 +351,8 @@ public extension Fake {
         @Locator(file: "system-directoryPaths")
         public var directoryPaths: String
 
-        @Locator(file: "system-mimeTypes", transformer: .tbd)
-        public var mimeTypes: String
+        @MimeTypeLocator(file: "system-mimeTypes")
+        public var mimeTypes: MimeType?
     }
 
     struct Team {
