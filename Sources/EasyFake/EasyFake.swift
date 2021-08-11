@@ -225,43 +225,43 @@ public extension Fake {
         @Locator(file: "finance-transaction_type")
         public var transactionType: String
 
-        @Locator(file: "finance-currency", transformer: .sub)
+        @Locator(file: "finance-currency", transformer: .tbd)
         public var currency: String
 
         public let creditCard = CreditCard()
 
         public struct CreditCard {
-            @Locator(file: "finance-credit_card-american_express", transformer: .regex)
+            @Locator(file: "finance-credit_card-american_express", transformer: .creditCard)
             public var americanExpress: String
 
-            @Locator(file: "finance-credit_card-diners_club", transformer: .regex)
+            @Locator(file: "finance-credit_card-diners_club", transformer: .creditCard)
             public var dinersClub: String
 
-            @Locator(file: "finance-credit_card-discover", transformer: .regex)
+            @Locator(file: "finance-credit_card-discover", transformer: .creditCard)
             public var discover: String
 
-            @Locator(file: "finance-credit_card-instapayment", transformer: .regex)
+            @Locator(file: "finance-credit_card-instapayment", transformer: .creditCard)
             public var instaPayment: String
 
-            @Locator(file: "finance-credit_card-jcb", transformer: .regex)
+            @Locator(file: "finance-credit_card-jcb", transformer: .creditCard)
             public var jcb: String
 
-            @Locator(file: "finance-credit_card-laser", transformer: .regex)
+            @Locator(file: "finance-credit_card-laser", transformer: .creditCard)
             public var laser: String
 
-            @Locator(file: "finance-credit_card-maestro", transformer: .regex)
+            @Locator(file: "finance-credit_card-maestro", transformer: .creditCard)
             public var maestro: String
 
-            @Locator(file: "finance-credit_card-mastercard", transformer: .regex)
+            @Locator(file: "finance-credit_card-mastercard", transformer: .creditCard)
             public var mastercard: String
 
-            @Locator(file: "finance-credit_card-solo", transformer: .regex)
+            @Locator(file: "finance-credit_card-solo", transformer: .creditCard)
             public var solo: String
 
-            @Locator(file: "finance-credit_card-switch", transformer: .regex)
+            @Locator(file: "finance-credit_card-switch", transformer: .creditCard)
             public var `switch`: String
 
-            @Locator(file: "finance-credit_card-visa", transformer: .regex)
+            @Locator(file: "finance-credit_card-visa", transformer: .creditCard)
             public var visa: String
         }
     }
@@ -351,7 +351,7 @@ public extension Fake {
         @Locator(file: "system-directoryPaths")
         public var directoryPaths: String
 
-        @Locator(file: "system-mimeTypes", transformer: .sub)
+        @Locator(file: "system-mimeTypes", transformer: .tbd)
         public var mimeTypes: String
     }
 

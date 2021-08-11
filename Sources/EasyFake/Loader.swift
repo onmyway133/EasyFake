@@ -9,17 +9,16 @@ import Foundation
 
 final class Loader {
     static let shared = Loader()
-
     private var cache: [URL: [String]] = [:]
 
-    func load(locale: String = Fake.locale, file: String) -> String {
+    func loadAll(locale: String = Fake.locale, file: String) -> [String] {
         guard let url = bundle.url(
             forResource: "\(locale)-\(file)",
             withExtension: "js"
-        ) else { return "" }
+        ) else { return [] }
 
         if let lines = cache[url] {
-            return process(lines: lines)
+            return lines
         }
 
         do {
@@ -42,14 +41,15 @@ final class Loader {
             lines.removeLast()
 
             cache[url] = lines
-            return process(lines: lines)
+            return lines
         } catch {
-            return ""
+            return []
         }
     }
 
-    private func process(lines: [String]) -> String {
-        lines.randomElement() ?? ""
+    func load(locale: String = Fake.locale, file: String) -> String {
+        let lines = loadAll(locale: locale, file: file)
+        return lines.randomElement() ?? ""
     }
 
     private var bundle: Bundle {

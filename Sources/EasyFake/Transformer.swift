@@ -27,5 +27,5 @@ public struct Transformer {
             .replacingHash()
     })
 
-    public static let sub = Transformer(transform: { $0 })
+    public static let tbd = Transformer(transform: { $0 })
 }
