@@ -22,14 +22,15 @@ public struct Locator {
 
     private static var cache: [String: [String]] = [:]
     private func load() -> [String] {
-        let key = "\(Fake.locale)-\(file)"
+        let locale = Fake.locale
+        let key = "\(locale)-\(file)"
 
         if let lines = Self.cache[key] {
             return lines
         }
 
         var lines = Loader()
-            .load(file: file)
+            .load(locale: locale, file: file)
             .components(separatedBy: .newlines)
             .map { line in
                 line

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Loader {
-    func load(locale: String = Fake.locale, file: String) -> String {
+    func load(locale: String, file: String) -> String {
         guard let url = bundle.url(
             forResource: "\(locale)-\(file)",
             withExtension: "js"
